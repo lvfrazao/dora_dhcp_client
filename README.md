@@ -6,7 +6,7 @@ A Python command line DHCP client that was designed for troubleshooting. Provide
 
 ## Installation
 
-`pip install dora_dhcp_client`
+`pip install dora-dhcp-client`
 
 ## Requirements
 
