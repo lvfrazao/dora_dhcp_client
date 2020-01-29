@@ -16,7 +16,7 @@ A Python command line DHCP client that was designed for troubleshooting. Provide
 
 ## Basic Usage
 
-Check if port 67 or port 68 is currently bound to by another program (for example with: `sudo netstat -tulpn`). If there is anything bound to these ports they must first be killed, and prevented from restarting.
+Check if port 68 (and port 67 if relay field is set) is currently bound to by another program (for example with: `sudo netstat -tulpn`). If there is anything bound to these ports they must first be killed, and prevented from restarting.
 
 Run `dora.py` with a `-h`/`--help` flag to see all the available options:
 
@@ -45,7 +45,7 @@ optional arguments:
   -@ TARGET             Given an IP address of a DHCP server, sends unicast requests
 ```
 
-**NOTE: dora.py must be able to bind to ports 67 and 68 in order to function properly. This may require the use of `sudo`. This may also require stopping any services (e.g., systemd-networkd) that are already bound to those ports.**
+**NOTE: dora.py must be able to bind to port 68 (and 67 under certain circumstances) in order to function properly. This may require the use of `sudo`. This may also require stopping any services (e.g., systemd-networkd) that are already bound to those ports.**
 
 ![DORA Client Example](images/dora_ex1.PNG)
 
