@@ -6,7 +6,7 @@ from dhcppython import client, options, utils
 
 
 CLIENT_NAME = "DORA"
-CLIENT_VER = "0.1.0"
+CLIENT_VER = "0.1.1"
 
 
 if __name__ == "__main__":
