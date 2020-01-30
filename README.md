@@ -6,11 +6,25 @@ A Python command line DHCP client that was designed for troubleshooting. Provide
 
 ## Installation
 
-`pip install dora-dhcp-client`
+### Python
+
+Run directly with Python3.8, install using pip:
+
+* `pip install dora-dhcp-client`
+
+### Alternate Installation
+
+Alternately install and run as a Docker image.
+
+```shell
+sudo curl -L --fail https://raw.githubusercontent.com/vfrazao-ns1/dora_dhcp_client/master/run.sh -o /usr/local/bin/dora
+sudo chmod +x /usr/local/bin/dora
+```
 
 ## Requirements
 
 * Python 3.8.0 or higher
+* Docker (Optional)
 
 **NOTE: This has been tested on Ubuntu 18.04 and Windows WSL. May or may not work on other platforms.**
 
