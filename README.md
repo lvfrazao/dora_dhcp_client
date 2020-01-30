@@ -1,16 +1,30 @@
 # DORA The DHCP Client
 
-Version 0.1.0
+Version 0.1.1
 
 A Python command line DHCP client that was designed for troubleshooting. Provides an interface for sending tailored DHCP packets to a DHCP server and inspect the response.
 
 ## Installation
 
-`pip install dora-dhcp-client`
+### Python
+
+Run directly with Python3.8, install using pip:
+
+* `pip install dora-dhcp-client`
+
+### Alternate Installation
+
+Alternately install and run as a Docker image.
+
+```shell
+sudo curl -L --fail https://raw.githubusercontent.com/vfrazao-ns1/dora_dhcp_client/master/run.sh -o /usr/local/bin/dora
+sudo chmod +x /usr/local/bin/dora
+```
 
 ## Requirements
 
 * Python 3.8.0 or higher
+* Docker (Optional)
 
 **NOTE: This has been tested on Ubuntu 18.04 and Windows WSL. May or may not work on other platforms.**
 
@@ -49,17 +63,26 @@ optional arguments:
 
 ![DORA Client Example](images/dora_ex1.PNG)
 
-Running `dora.py` without supplying any options just binds to an arbitrary interface and sends out broadcast UDP packets. 
+Running `dora.py` without supplying any options just binds to an arbitrary interface and sends out broadcast UDP packets.
 
 `-i` allows selection of the interface to bind to (e.g., "eth0")
+
 `-a` allows the MAC address to be set in both the client identifier option and the chaddr field
+
 `-d` Prints very low level debug statements and includes any Python tracebacks
+
 `-u` sets the unicast flag in the DHCP packet
+
 `-s` specifies an unicast address to send the packets to, the `-u` flag *should* be selected but doesnt need to be
+
 `-r` sets the giaddr field of the packet
+
 `-v` sets the verbosity level of the output. No `v` flags means that the client will just report success or failure to obtain a lease. A single `v` flag (`-v`) will pretty print  a human readable form of the DHCPACK packet. This will show the set of options that the DHCP server has sent us back. Two `v` flags (`-vv`) will pretty print the all four packets in the lease handshake (DHCPDISCOVER, DHCPOFFER, DHCPREQUEST, DHCPACK). Three `v` flags will print everything stated before and it will enable the debug output (same as setting the `-d` flag).
+
 `-p` sets the client port (default: 68)
+
 `--target_port` sets the server port (default: 67)
+
 `-@` is a convenience flag that sets the unicast flag, sets the giaddr field to the IP of the current machine, and sends unicast packets to the server specified
 
 **NOTE the DHCP RFC 2131 sets the client port to 68 and the server port to 67 options that set different client or server ports are not expected to work with an RFC compliant server**
