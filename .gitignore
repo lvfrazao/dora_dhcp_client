@@ -105,3 +105,19 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+#Added by cargo
+#
+#already existing elements are commented out
+
+/target
+**/*.rs.bk
+
+
+#Added by cargo
+#
+#already existing elements are commented out
+
+#/target
+#**/*.rs.bk
