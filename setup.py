@@ -14,7 +14,7 @@ DESCRIPTION = 'A DHCP client designed to be used for troubleshooting of DHCP ser
 URL = 'https://github.com/vfrazao-ns1/dora_dhcp_client'
 EMAIL = ''
 AUTHOR = 'Victor Frazao'
-REQUIRES_PYTHON = '>=3.8.0'
+REQUIRES_PYTHON = '>=3.7.0'
 VERSION = '0.1.0'
 
 # What packages are required for this module to be executed?
@@ -100,7 +100,7 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: Implementation :: CPython',
     ],
     # $ setup.py publish support.
