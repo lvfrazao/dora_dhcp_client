@@ -1,4 +1,6 @@
 .vscode/
+dora.build/
+dora.dist/
 
 # Boilerplate:
 # Byte-compiled / optimized / DLL files
