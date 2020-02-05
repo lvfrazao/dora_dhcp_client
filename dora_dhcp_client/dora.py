@@ -6,7 +6,7 @@ from dhcppython import client, options, utils
 
 
 CLIENT_NAME = "DORA"
-CLIENT_VER = "0.1.1"
+CLIENT_VER = "0.1.2"
 
 
 if __name__ == "__main__":
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         "server": "Server to send DHCP packets. Required for unicast and for relay use.",
         "relay": "Address to set the giaddr field to",
         "verbose": "Verbosity level (v: show ack packet, vv: show all packets, vvv: show debug)",
-        "options": "JSON body of options to include in requests",
+        "options": "JSON body of options to include in requests (file name or JSON text)",
         "port": "Port to send packets from on client machine",
         "target_port": "Port to send to on target machine",
         "target": "Given an IP address of a DHCP server, sends unicast requests",
@@ -86,8 +86,14 @@ if __name__ == "__main__":
                 for k,v in opts_dict.items():
                     opts.append(options.options.value_to_object({k: v}))
         except Exception as e:
-            logging.error(f"Unable to parse JSON options file {args.option}: {e}")
-            exit(1)
+            try:
+                opts_dict = json.loads(args.options)
+                opts = []
+                for k,v in opts_dict.items():
+                    opts.append(options.options.value_to_object({k: v}))
+            except Exception as e:
+                logging.error(f"Unable to parse JSON options file {args.option}: {e}")
+                exit(1)
     options_list = options.OptionList(opts)
     if client_addr := options_list.by_code(61):
         mac_addr = client_addr.value["client_identifier"]["hwaddr"]
