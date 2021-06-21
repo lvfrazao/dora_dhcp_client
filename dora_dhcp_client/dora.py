@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.8
+#!/usr/bin/env python3
 import logging
 import argparse
 import json
@@ -6,7 +6,7 @@ from dhcppython import client, options, utils
 
 
 CLIENT_NAME = "DORA"
-CLIENT_VER = "0.1.2"
+CLIENT_VER = "0.1.3"
 
 
 if __name__ == "__main__":

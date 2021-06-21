@@ -7,4 +7,4 @@ set -e
 VERSION="0.1.3"
 IMAGE="lvfrazao/dora:$VERSION"
 
-exec docker run --rm --network host $IMAGE "$@"
+exec docker build -t $IMAGE .

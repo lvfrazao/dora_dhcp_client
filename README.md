@@ -1,6 +1,6 @@
 # DORA The DHCP Client
 
-Version 0.1.2
+Version 0.1.3
 
 A Python command line DHCP client that was designed for troubleshooting. Provides an interface for sending tailored DHCP packets to a DHCP server and inspect the response.
 
